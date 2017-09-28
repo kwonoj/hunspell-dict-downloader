@@ -19,8 +19,11 @@ const dictionaryPackageDirectory = path.resolve('./dict-tmp/packages');
 const prepareDictionary = () => {
   shell.rm('-rf', './dict-tmp');
   shell.exec(`git clone https://github.com/kwonoj/hunspell-dict ./dict-tmp`);
-  shell.exec(`cd ./dict-tmp && git checkout $(git describe --abbrev=0 --tags) && cd ..`);
-  shell.rm('./src/manifest.ts');
+  shell.cd('./dict-tmp');
+  const tag = shell.exec(`git describe --abbrev=0 --tags`).stdout;
+  shell.exec(`git checkout ${tag}`);
+  shell.cd('..');
+  shell.rm('-f', './src/manifest.ts');
 };
 
 const cleanup = () => {
@@ -58,15 +61,24 @@ const getManifest = async (dictionaryLanguage: string, packageVersion: string) =
  */
 const emitManifest = async (manifest: Array<object>) => {
   //get language code xx-xx, convert to enum key XX_XX
-  const getEnumKey = (s: string) => v.chain(s).snakeCase().upperCase().value();
+  const getEnumKey = (s: string) =>
+    v
+      .chain(s)
+      .snakeCase()
+      .upperCase()
+      .value();
 
-  const dictionaryKeys = manifest.map((x: { language: string }) => ({ key: getEnumKey(x.language), value: x.language }));
+  const dictionaryKeys = manifest.map((x: { language: string }) => ({
+    key: getEnumKey(x.language),
+    value: x.language
+  }));
 
   //generate typed enum for available languages
-  const enumTemplate = `enum DICT_LANGUAGE { \n ${dictionaryKeys.map((x) => `${x.key} = \'${x.value}\'\n`).join(',')} \n}`;
+  const enumTemplate = `enum DICT_LANGUAGE { \n ${dictionaryKeys
+    .map(x => `${x.key} = \'${x.value}\'\n`)
+    .join(',')} \n}`;
   //generate interface for dictionary manifest
-  const interfaceTemplate =
-`/**
+  const interfaceTemplate = `/**
 * interfaces for manifest of each dictionary.
 */
 interface DictionaryManifest {
@@ -103,10 +115,11 @@ affMD5: string;
 
   //generate manifest object satisfies DictionaryManifest type
   const getManifestTemplate = (manifest: any) => `{
-    ${
-    Object.keys(manifest)
-      .map((key) => `${key}: ${key === 'language' ? `DICT_LANGUAGE.${getEnumKey(manifest[key])}` : `\'${manifest[key]}\'`}\n`).join(',')
-    }
+    ${Object.keys(manifest)
+      .map(
+        key => `${key}: ${key === 'language' ? `DICT_LANGUAGE.${getEnumKey(manifest[key])}` : `\'${manifest[key]}\'`}\n`
+      )
+      .join(',')}
   }`;
 
   //generate stringmap of manifest object for each manifest
@@ -115,8 +128,7 @@ affMD5: string;
   };`;
 
   //concat and export generated
-  const output =
-    `//this file is auto generated, do not modify manually
+  const output = `//this file is auto generated, do not modify manually
     ${enumTemplate}\n${interfaceTemplate}\n${manifestMapTemplate}\nexport {DICT_LANGUAGE, DictionaryManifest, manifest};
     `;
 
@@ -131,7 +143,7 @@ const main = async () => {
   console.log(`Generating manifest for dictionary version '${packageVersion}'`);
 
   const dictionaries = await readDirPromise(dictionaryPackageDirectory);
-  const manifest = await Promise.all(dictionaries.map((x) => getManifest(x, packageVersion)));
+  const manifest = await Promise.all(dictionaries.map(x => getManifest(x, packageVersion)));
 
   await emitManifest(manifest);
 
