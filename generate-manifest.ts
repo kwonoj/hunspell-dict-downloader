@@ -20,8 +20,20 @@ const prepareDictionary = () => {
   shell.rm('-rf', './dict-tmp');
   shell.exec(`git clone https://github.com/kwonoj/hunspell-dict ./dict-tmp`);
   shell.cd('./dict-tmp');
+
+  //force line endings to get same MD5 from text dic / aff files
+  fs.writeFileSync('./.gitattributes', '* text=input eol=lf');
+  shell.exec('git config core.autocrlf false');
+  shell.exec('git config core.eol lf');
+
+  //checkout latest tagged release version
   const tag = shell.exec(`git describe --abbrev=0 --tags`).stdout;
   shell.exec(`git checkout ${tag}`);
+
+  //clear current one to get specified line endings
+  shell.exec(`git rm -rf --cached .`);
+  shell.exec(`git reset --hard HEAD`);
+
   shell.cd('..');
   shell.rm('-f', './src/manifest.ts');
 };
