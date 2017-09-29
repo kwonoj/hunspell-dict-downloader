@@ -19,7 +19,7 @@ jobs:
           name: build
           command: npm run build
       - run:
-          namme: test
+          name: test
           command: |
             npm test
             bash <(curl -s https://codecov.io/bash)
