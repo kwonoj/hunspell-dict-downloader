@@ -18,7 +18,15 @@ export const initialize = async (
   await fs.ensureDir(dictionaryDirectory);
 
   const directory = await fs.readdir(dictionaryDirectory);
-  const existingDictionaries = directory.filter(availableDictionaries.includes) as Array<CODE_LANG_REGION>;
+  const existingDictionaries = directory.filter((dict: CODE_LANG_REGION) =>
+    availableDictionaries.includes(dict)
+  ) as Array<CODE_LANG_REGION>;
 
-  return await Promise.all(existingDictionaries.filter(dict => isInstalledDictionaryValid(dictionaryDirectory, dict)));
+  const ret = [];
+  for (const dict of existingDictionaries) {
+    if (await isInstalledDictionaryValid(dictionaryDirectory, dict)) {
+      ret.push(dict);
+    }
+  }
+  return ret;
 };
