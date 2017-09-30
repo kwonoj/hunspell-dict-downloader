@@ -33,6 +33,8 @@
     "<rootDir>/spec/.*\\.(ts|js)$",
     "<rootDir>/build/.*\\.(ts|js)$",
     "<rootDir>/src/manifest.ts",
-    "<rootDir>/src/HunspellDictDownloader.ts"
+    "<rootDir>/src/HunspellDictDownloader.ts",
+    "<rootDir>/src/util/getFileHash.ts"
+
   ]
 }
