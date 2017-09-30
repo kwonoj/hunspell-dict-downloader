@@ -12,6 +12,15 @@ export interface HunspellDictDownloader {
   installedDictionaries: Readonly<Array<CODE_LANG_REGION>>;
 
   /**
+   * Object maps language to dictionary location for installed dictionary.
+   */
+  dictionaryLocation: Readonly<{ [index in CODE_LANG_REGION]: { dic: string; aff: string } }>;
+
+  /**
+   * Returns mapped LANG_REGION code from LANG code
+   */
+  getLanguageRegionCode(code: CODE_LANG_REGION | CODE_LANG): CODE_LANG_REGION;
+  /**
    * Download new dictionary and install it.
    * If dictionary package has been downloaded previously and if it's valid
    * it'll be installed without re downloading whole package.

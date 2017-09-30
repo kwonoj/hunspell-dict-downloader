@@ -27,12 +27,21 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
     availableDictionaries
   );
 
+  const dictionaryLocation: {
+    [index in CODE_LANG_REGION]: { dic: string; aff: string }
+  } = installedDictionaries.reduce(
+    (acc, value) => (acc[value] = getDictionaryPath(dictionaryDirectory, value)),
+    {} as any
+  );
+
   const currentDownloads: { [index in CODE_LANG_REGION]: Promise<{ dic: string; aff: string }> } = {} as any;
   const clearCache = async () => fs.emptyDir(cacheDirectory);
 
   return {
     availableDictionaries,
     installedDictionaries,
+    dictionaryLocation,
+    getLanguageRegionCode,
     installDictionary: async (code: CODE_LANG_REGION | CODE_LANG) => {
       const langRegionCode = getLanguageRegionCode(code);
       if (installedDictionaries.includes(langRegionCode)) {
@@ -59,7 +68,7 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
           }
 
           installedDictionaries.push(langRegionCode);
-          return { dic, aff };
+          return (dictionaryLocation[langRegionCode] = { dic, aff });
         } finally {
           delete currentDownloads[langRegionCode];
         }
@@ -78,6 +87,7 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
           installedDictionaries.indexOf(langRegionCode),
           installedDictionaries.includes(langRegionCode) ? 1 : 0
         );
+        delete dictionaryLocation[langRegionCode];
       }
     },
     clearCache
