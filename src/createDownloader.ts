@@ -9,7 +9,15 @@ import { isInstalledDictionaryValid } from './isInstalledDictionaryValid';
 import { CODE_LANG, CODE_LANG_REGION, DictionaryManifest, manifest } from './manifest';
 import { log } from './util/logger';
 
-const createDownloader: (initPath: string) => Promise<HunspellDictDownloader> = async (initPath: string) => {
+/**
+ * Initialize, loads local dictionary and returns new instance of HunspellDictDownloader.
+ *
+ * @param {string} installPath path to manage downloaded dictionary. If not exists, will be created.
+ * If path was already initialized and have previously installed dictionary, it'll be loaded.
+ *
+ * @returns instance of HunspellDictDownloader.
+ */
+const createDownloader: (installPath: string) => Promise<HunspellDictDownloader> = async (initPath: string) => {
   const dictionaryDirectory = path.resolve(initPath);
   const cacheDirectory = path.join(dictionaryDirectory, '.cache');
 

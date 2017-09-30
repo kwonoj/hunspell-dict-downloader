@@ -19,7 +19,7 @@ export interface HunspellDictDownloader {
    * NOTE: It is not thread safety and multple attempt to download same
    * language does not gaurantee validaty of installed dictionary.
    *
-   * @param {CODE_LANG_REGION | CODE_LANG} language
+   * @param {CODE_LANG_REGION | CODE_LANG} code
    * @returns Promise resolves path to installed dictionary.
    */
   installDictionary(code: CODE_LANG_REGION | CODE_LANG): Promise<{ dic: string; aff: string }>;

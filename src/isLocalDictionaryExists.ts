@@ -5,6 +5,7 @@ import { CODE_LANG, CODE_LANG_REGION } from './manifest';
 import { log } from './util/logger';
 
 /**
+ * @internal
  * Check if given language dictionary is already installed.
  * It behaves lightweight existense check compare to `isInstalledDictionaryValid`,
  * only check if dictionary file exists or not.

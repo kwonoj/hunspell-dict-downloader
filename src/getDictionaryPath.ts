@@ -3,6 +3,7 @@ import { getLanguageRegionCode } from './getLanguageRegionCode';
 import { CODE_LANG, CODE_LANG_REGION } from './manifest';
 
 /**
+ * @internal
  * Returns path to dictionary files for given langauge.
  * This doesn't check existense of dictionary if it's already installed locally or not.
  *

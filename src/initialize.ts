@@ -3,6 +3,7 @@ import { isInstalledDictionaryValid } from './isInstalledDictionaryValid';
 import { CODE_LANG_REGION } from './manifest';
 
 /**
+ * @internal
  * Initializes dictionary downloader instance.
  * If given directory does not exists, it'll create new one.
  * Otherwise it'll look for existing dictionaries.

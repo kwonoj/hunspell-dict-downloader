@@ -6,6 +6,7 @@ import { CODE_LANG, CODE_LANG_REGION, DictionaryManifest, manifest } from './man
 import { log } from './util/logger';
 
 /**
+ * @internal
  * Check installation of dictionary as well as validation by comparing MD5 hash of files.
  * If checksum does not match, it'll clear existing dictionary files
  *
