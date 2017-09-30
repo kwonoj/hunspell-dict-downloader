@@ -47,6 +47,7 @@
   "homepage": "https://github.com/kwonoj/hunspell-dict-downloader#readme",
   "dependencies": {
     "fs-extra": "^4.0.2",
+    "lodash.includes": "^4.3.0",
     "md5-file": "^3.2.3",
     "pacote": "^6.0.2",
     "pify": "^3.0.0"
