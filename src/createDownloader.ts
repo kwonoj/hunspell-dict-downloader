@@ -92,6 +92,7 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
       } catch (e) {
         log.warn(`uninstallDictionary: not able to delete dictionary file`, e);
       } finally {
+        log.verbose(`uninstallDictionary: removing ${langRegionCode} from map`);
         installedDictionaries.splice(installedDictionaries.indexOf(langRegionCode), 1);
         delete dictionaryLocation[langRegionCode];
       }
