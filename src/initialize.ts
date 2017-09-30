@@ -1,4 +1,5 @@
 import * as fs from 'fs-extra';
+import * as includes from 'lodash.includes';
 import { isInstalledDictionaryValid } from './isInstalledDictionaryValid';
 import { CODE_LANG_REGION } from './manifest';
 
@@ -20,7 +21,7 @@ export const initialize = async (
 
   const directory = await fs.readdir(dictionaryDirectory);
   const existingDictionaries = directory.filter((dict: CODE_LANG_REGION) =>
-    availableDictionaries.includes(dict)
+    includes(availableDictionaries, dict)
   ) as Array<CODE_LANG_REGION>;
 
   const ret = [];

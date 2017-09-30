@@ -1,4 +1,5 @@
 import * as fs from 'fs-extra';
+import * as includes from 'lodash.includes';
 import * as pacote from 'pacote';
 import * as path from 'path';
 import { getDictionaryPath } from './getDictionaryPath';
@@ -47,7 +48,7 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
     getLanguageRegionCode,
     installDictionary: async (code: CODE_LANG_REGION | CODE_LANG) => {
       const langRegionCode = getLanguageRegionCode(code);
-      if (installedDictionaries.includes(langRegionCode)) {
+      if (includes(installedDictionaries, langRegionCode)) {
         return getDictionaryPath(dictionaryDirectory, langRegionCode);
       }
 
@@ -81,7 +82,7 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
     },
     uninstallDictionary: async (code: CODE_LANG_REGION | CODE_LANG) => {
       const langRegionCode = getLanguageRegionCode(code);
-      if (!installedDictionaries.includes(langRegionCode)) {
+      if (!includes(installedDictionaries, langRegionCode)) {
         return;
       }
 
