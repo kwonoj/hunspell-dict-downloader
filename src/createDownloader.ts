@@ -30,7 +30,10 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
   const dictionaryLocation: {
     [index in CODE_LANG_REGION]: { dic: string; aff: string }
   } = installedDictionaries.reduce(
-    (acc, value) => (acc[value] = getDictionaryPath(dictionaryDirectory, value)),
+    (acc, value) => {
+      acc[value] = getDictionaryPath(dictionaryDirectory, value);
+      return acc;
+    },
     {} as any
   );
 
@@ -78,15 +81,18 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
     },
     uninstallDictionary: async (code: CODE_LANG_REGION | CODE_LANG) => {
       const langRegionCode = getLanguageRegionCode(code);
+      if (!installedDictionaries.includes(langRegionCode)) {
+        return;
+      }
+
       const { installDirectory } = getDictionaryPath(dictionaryDirectory, langRegionCode);
 
       try {
         await fs.emptyDir(installDirectory);
+      } catch (e) {
+        log.warn(`uninstallDictionary: not able to delete dictionary file`, e);
       } finally {
-        installedDictionaries.splice(
-          installedDictionaries.indexOf(langRegionCode),
-          installedDictionaries.includes(langRegionCode) ? 1 : 0
-        );
+        installedDictionaries.splice(installedDictionaries.indexOf(langRegionCode), 1);
         delete dictionaryLocation[langRegionCode];
       }
     },
