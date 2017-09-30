@@ -1,8 +1,8 @@
-import * as md5 from 'md5-file';
 import { getDictionaryPath } from './getDictionaryPath';
 import { getLanguageRegionCode } from './getLanguageRegionCode';
 import { isLocalDictionaryExists } from './isLocalDictionaryExists';
 import { CODE_LANG, CODE_LANG_REGION, DictionaryManifest, manifest } from './manifest';
+import { getFileHash } from './util/getFileHash';
 import { log } from './util/logger';
 
 /**
@@ -30,8 +30,8 @@ export const isInstalledDictionaryValid: (
   log.silly(`isInstalledDictionaryValid: checking`, { dic, aff });
 
   try {
-    const dicHash = await md5(dic);
-    const affHash = await md5(aff);
+    const dicHash = await getFileHash(dic);
+    const affHash = await getFileHash(aff);
 
     log.silly(`isInstalledDictionaryValid: read`, { dicHash, affHash });
 
