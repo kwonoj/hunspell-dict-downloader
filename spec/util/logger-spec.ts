@@ -23,8 +23,10 @@ describe('logger', () => {
 
     const mockCalls = mockLogFn.mock.calls;
 
-    expect(mockCalls).to.have.lengthOf(5);
+    expect(mockCalls).to.have.lengthOf(7);
     expect(mockCalls).to.deep.equal([
+      [message, value],
+      [message, value],
       [message, value],
       [message, value],
       [message, value],

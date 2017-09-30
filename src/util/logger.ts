@@ -4,6 +4,8 @@ type logObjectType = {
   info: logFunctionType;
   warn: logFunctionType;
   error: logFunctionType;
+  verbose: logFunctionType;
+  http: logFunctionType;
   silly: logFunctionType;
 };
 
@@ -19,6 +21,8 @@ const log: Readonly<logObjectType> = {
   info: noopLog,
   warn: noopLog,
   error: noopLog,
+  http: noopLog,
+  verbose: noopLog,
   silly: noopLog
 };
 

@@ -6,13 +6,13 @@ import { locale2 } from 'locale2/src/index';
 import * as md5File from 'md5-file';
 import * as pacote from 'pacote';
 import * as path from 'path';
+import * as pify from 'pify';
 import * as shell from 'shelljs';
-import { promisify } from 'util';
 import * as v from 'voca';
 
-const readDirPromise = promisify(fs.readdir);
-const writeFilePromise = promisify(fs.writeFile);
-const md5Promise = promisify(md5File);
+const readDirPromise = pify(fs.readdir);
+const writeFilePromise = pify(fs.writeFile);
+const md5Promise = pify(md5File);
 
 const dictionaryPackageDirectory = path.resolve('./dict-tmp/packages');
 
@@ -229,7 +229,7 @@ const main = async () => {
   console.log(`Generating manifest for dictionary version '${packageVersion}'`);
 
   const dictionaries = await readDirPromise(dictionaryPackageDirectory);
-  const manifest = await Promise.all(dictionaries.map(x => getManifest(x, packageVersion)));
+  const manifest = await Promise.all(dictionaries.map((x: string) => getManifest(x, packageVersion)));
 
   await emitManifest(manifest);
 
