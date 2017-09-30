@@ -2,6 +2,7 @@ import * as fs from 'fs-extra';
 import { getDictionaryPath } from './getDictionaryPath';
 import { getLanguageRegionCode } from './getLanguageRegionCode';
 import { CODE_LANG, CODE_LANG_REGION } from './manifest';
+import { log } from './util/logger';
 
 /**
  * Check if given language dictionary is already installed.
@@ -17,11 +18,12 @@ export const isLocalDictionaryExists: (
 ) => Promise<boolean> = async (dictionaryDirectory: string, code: CODE_LANG_REGION | CODE_LANG): Promise<boolean> => {
   const langRegionCode = getLanguageRegionCode(code);
   const { installDirectory, dic, aff } = getDictionaryPath(dictionaryDirectory, langRegionCode);
-  if (!await fs.pathExists(installDirectory)) {
-    return false;
-  }
 
   try {
+    if (!await fs.pathExists(installDirectory)) {
+      return false;
+    }
+
     const dicStat = await fs.stat(dic);
     const affStat = await fs.stat(aff);
     return dicStat.isFile() && affStat.isFile();
@@ -29,7 +31,8 @@ export const isLocalDictionaryExists: (
     if (e.code === 'ENOENT') {
       return false;
     }
-    //log?
+
+    log.error(`isLocalDictionaryExists: unexpected error occurred while checking ${installDirectory}`, e);
     return false;
   }
 };
