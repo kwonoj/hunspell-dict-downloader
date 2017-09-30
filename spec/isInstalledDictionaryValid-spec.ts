@@ -9,7 +9,7 @@ describe('isInstalledDictionaryValid', () => {
 
   beforeEach(() => {
     jest.mock('../src/isLocalDictionaryExists');
-    jest.mock('md5-file');
+    jest.mock('../src/util/getFileHash');
 
     dirMock = require('../src/isLocalDictionaryExists').isLocalDictionaryExists as jest.Mock<any>;
     isInstalledDictionaryValid = require('../src/isInstalledDictionaryValid').isInstalledDictionaryValid;
@@ -24,7 +24,7 @@ describe('isInstalledDictionaryValid', () => {
 
   it('should return false if dic checksum does not match', async () => {
     dirMock.mockReturnValueOnce(Promise.resolve(true));
-    (require('md5-file') as jest.Mock<any>).mockReturnValueOnce('boo');
+    (require('../src/util/getFileHash').getFileHash as jest.Mock<any>).mockReturnValueOnce('boo');
 
     const valid = await isInstalledDictionaryValid('boo', CODE_LANG_REGION.KO);
     expect(valid).to.be.false;
@@ -32,7 +32,7 @@ describe('isInstalledDictionaryValid', () => {
 
   it('should return false if aff checksum does not match', async () => {
     dirMock.mockReturnValueOnce(Promise.resolve(true));
-    (require('md5-file') as jest.Mock<any>).mockImplementation(
+    (require('../src/util/getFileHash').getFileHash as jest.Mock<any>).mockImplementation(
       (d: string) => (d.includes('.dic') ? '1f68e4b476ca574014875474562d4b65' : 'boo')
     );
 
@@ -42,7 +42,7 @@ describe('isInstalledDictionaryValid', () => {
 
   it('should return false if reading checksum failure', async () => {
     dirMock.mockReturnValueOnce(Promise.resolve(true));
-    (require('md5-file') as jest.Mock<any>).mockReturnValueOnce(Promise.reject('meh'));
+    (require('../src/util/getFileHash').getFileHash as jest.Mock<any>).mockReturnValueOnce(Promise.reject('meh'));
 
     const valid = await isInstalledDictionaryValid('boo', CODE_LANG_REGION.KO);
     expect(valid).to.be.false;
