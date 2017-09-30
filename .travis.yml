@@ -7,7 +7,11 @@ cache:
 
 env:
   matrix:
-  - NODE_VER=8
+  - NODE_VER=4 FULL_VALIDATE=false
+  - NODE_VER=5 FULL_VALIDATE=true
+  - NODE_VER=6 FULL_VALIDATE=false
+  - NODE_VER=7 FULL_VALIDATE=false
+  - NODE_VER=8 FULL_VALIDATE=true
 
 matrix:
   fast_finish: true
@@ -26,7 +30,6 @@ before_script: greenkeeper-lockfile-update
 script:
   - npm run build
   - npm test
-  - npm run manifest
-  - cat ./src/manifest.ts
+  - if [ "$FULL_VALIDATE" == "true" ]; then npm run manifest:generate && npm run manifest:validate && cat ./src/manifest.ts; fi
 
 after_script: greenkeeper-lockfile-upload

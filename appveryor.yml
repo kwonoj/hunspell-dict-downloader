@@ -1,0 +1,23 @@
+environment:
+  matrix:
+  # node.js
+    - nodejs_version: "6"
+    - nodejs_version: "7"
+    - nodejs_version: "8"
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - set PATH=%APPDATA%\npm;%PATH%
+  - node -v && npm -v
+  - npm install
+
+build_script:
+  - npm run build
+
+test_script:
+  - npm test
+  - npm run manifest:generate
+  - npm run manifest:validate
+  - type ./src/manifest.ts
+
+version: "{build}"
