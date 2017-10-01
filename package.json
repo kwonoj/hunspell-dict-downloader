@@ -80,7 +80,7 @@
     "ts-jest": "^21.0.1",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
-    "tslint-no-unused-expression-chai": "0.0.2",
+    "tslint-no-unused-expression-chai": "0.0.3",
     "typescript": "^2.5.3",
     "voca": "^1.3.0"
   }
