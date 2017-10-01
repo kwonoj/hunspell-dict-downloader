@@ -28,7 +28,7 @@ createDownloader(installPath: string): Promise<HunspellDictDownloader>
 
 If given path has previously installed dictionaries, it'll be loaded into `installedDictionaries`.
 
-## Initialize location to manage dictionary
+## Manage dictionaries
 
 `HunspellDictDownloader` provides few interfaces to manage dictionaries.
 
@@ -53,7 +53,7 @@ interface HunspellDictDownloader {
    * Returns mapped LANG_REGION code from LANG code
    */
   getLanguageRegionCode(code: CODE_LANG_REGION | CODE_LANG): CODE_LANG_REGION;
-  
+
   /**
    * Download new dictionary and install it.
    * If dictionary package has been downloaded previously and if it's valid
