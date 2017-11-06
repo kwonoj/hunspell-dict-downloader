@@ -225,11 +225,14 @@ const main = async () => {
   console.log(`Pull out dictionary package to get latest metadata`);
   prepareDictionary();
 
-  const packageVersion = require(path.resolve('./dict-tmp/lerna.json')).version;
-  console.log(`Generating manifest for dictionary version '${packageVersion}'`);
-
   const dictionaries = await readDirPromise(dictionaryPackageDirectory);
-  const manifest = await Promise.all(dictionaries.map((x: string) => getManifest(x, packageVersion)));
+  const manifest = await Promise.all(
+    dictionaries.map((x: string) => {
+      const packageVersion = require(path.resolve(`./dict-tmp/packages/${x}/package.json`)).version;
+      console.log(`Generating manifest for dictionary '${x}' for version '${packageVersion}'`);
+      return getManifest(x, packageVersion);
+    })
+  );
 
   await emitManifest(manifest);
 
