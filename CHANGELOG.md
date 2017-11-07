@@ -1,3 +1,18 @@
+<a name="0.0.2"></a>
+## [0.0.2](https://github.com/kwonoj/hunspell-dict-downloader/compare/v0.0.1...v0.0.2) (2017-11-06)
+
+
+### Bug Fixes
+
+* **generatemanifest:** generate manifest per each pkg latest version ([3ee6130](https://github.com/kwonoj/hunspell-dict-downloader/commit/3ee6130))
+
+
+### Features
+
+* **manifest:** bump up manifest to latest dictionaries ([6415b01](https://github.com/kwonoj/hunspell-dict-downloader/commit/6415b01))
+
+
+
 <a name="0.0.1"></a>
 ## 0.0.1 (2017-09-30)
 

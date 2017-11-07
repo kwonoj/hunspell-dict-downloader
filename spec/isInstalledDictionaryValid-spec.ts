@@ -33,7 +33,7 @@ describe('isInstalledDictionaryValid', () => {
   it('should return false if aff checksum does not match', async () => {
     dirMock.mockReturnValueOnce(Promise.resolve(true));
     (require('../src/util/getFileHash').getFileHash as jest.Mock<any>).mockImplementation(
-      (d: string) => (d.includes('.dic') ? '1f68e4b476ca574014875474562d4b65' : 'boo')
+      (d: string) => (d.includes('.dic') ? '58ab72addba0b22ae908176970c01bc4' : 'boo')
     );
 
     const valid = await isInstalledDictionaryValid('boo', CODE_LANG_REGION.KO);

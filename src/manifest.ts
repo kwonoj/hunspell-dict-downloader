@@ -407,11 +407,11 @@ const manifest: { [index in CODE_LANG_REGION]: Readonly<DictionaryManifest> } = 
   'hu-hu': {
     code: CODE_LANG_REGION.HU_HU,
     packageName: 'hunspell-dict-hu-hu',
-    version: '0.0.2',
-    integrity: 'sha512-q07oetX441vCCex1/8MXPfaD75H6EmB0j9r7kfBnMcOSLBVBkq9VyfSjY7zUPmXOGAECB0KUVp0Zvkt9Di/9Nw==',
-    shasum: '06d360767e2d7b0f23c9163fed6a3b6f627ce740',
-    dicMD5: 'fb6f93a3a8e1b1f561e28e1390d9a98c',
-    affMD5: 'a260b37a40f5667784a1ca2c44f650b7',
+    version: '0.0.3',
+    integrity: 'sha512-OXOix5XJcOqGIxpZzzzAEKp6wFIyRdpGL8vRXPXZzJDHfJVo0t73i5fonbbRE+20tYflzMNUijLxepDlZ47P/w==',
+    shasum: 'b36fe439f5d6530c57f5d4831c47828c921728a6',
+    dicMD5: '28d7bd9bbfdd52424d4f053a3045f0d0',
+    affMD5: '114df2b4458a9a41db5db395d49f531d',
     langCode: CODE_LANG.HU,
     language: 'Hungarian',
     region: 'Hungary'
@@ -431,11 +431,11 @@ const manifest: { [index in CODE_LANG_REGION]: Readonly<DictionaryManifest> } = 
   ko: {
     code: CODE_LANG_REGION.KO,
     packageName: 'hunspell-dict-ko',
-    version: '0.0.2',
-    integrity: 'sha512-CLNxfUrsLeh7DIyExJCsX6mFvD/KuTj79EBik3veQGKCkJ9IADMiLu5eV/XgDMqS0S0M4uH1+8qHePI35ozqkQ==',
-    shasum: '8a2ed09895f8a178c92a8396c234f9580681999d',
-    dicMD5: '1f68e4b476ca574014875474562d4b65',
-    affMD5: '12080e5799de3b96738c5df0b48c72be',
+    version: '0.0.3',
+    integrity: 'sha512-cWfcF+1fZF7WnnkAqmdvGv6ElDDZR/6R2pZCes8gIu8PUS+UknA2OcVcg9XQFVlvhp/fSWR/hKQN3tNW1IY18A==',
+    shasum: 'ecb207d8857979d5ff7d7191c0c6e6323364685d',
+    dicMD5: '58ab72addba0b22ae908176970c01bc4',
+    affMD5: '9ae40c3cf7759b43f5ec1f6fd05648df',
     langCode: CODE_LANG.KO,
     language: 'Korean',
     region: 'null'
