@@ -56,7 +56,7 @@
     "@commitlint/cli": "^5.0.0",
     "@commitlint/config-angular": "^5.0.0",
     "@types/chai": "^4.0.4",
-    "@types/fs-extra": "^4.0.2",
+    "@types/fs-extra": "^5.0.0",
     "@types/iso-3166-2": "^0.6.0",
     "@types/jest": "^21.1.1",
     "@types/node": "^8.0.31",
