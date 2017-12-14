@@ -1,9 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/rx-sandbox
+    working_directory: ~/hunspell-dict-downloader
     docker:
-      - image: node:7.10.1
+      - image: node:9.3.0
     steps:
       - checkout
       - run:
