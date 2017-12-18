@@ -17,7 +17,7 @@ module.exports = wallaby => ({
   },
 
   setup: function(w) {
-    jestConfig = {
+    const jestConfig = {
       resetMocks: true,
       resetModules: true,
       clearMocks: true
