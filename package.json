@@ -59,7 +59,7 @@
     "@types/chai": "^4.0.10",
     "@types/fs-extra": "^5.0.0",
     "@types/iso-3166-2": "^0.6.0",
-    "@types/jest": "^21.1.8",
+    "@types/jest": "^22.0.0",
     "@types/node": "^8.5.1",
     "@types/pify": "^3.0.0",
     "@types/shelljs": "^0.7.7",
