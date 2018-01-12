@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^6.0.1",
-    "@commitlint/config-angular": "^5.1.1",
+    "@commitlint/config-angular": "^6.0.2",
     "@types/chai": "^4.0.10",
     "@types/fs-extra": "^5.0.0",
     "@types/iso-3166-2": "^0.6.0",
