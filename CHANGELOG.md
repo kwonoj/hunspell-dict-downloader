@@ -1,3 +1,15 @@
+<a name="0.0.3"></a>
+## [0.0.3](https://github.com/kwonoj/hunspell-dict-downloader/compare/v0.0.2...v0.0.3) (2018-05-04)
+
+
+### Bug Fixes
+
+* **package:** update fs-extra to version 5.0.0 ([a480110](https://github.com/kwonoj/hunspell-dict-downloader/commit/a480110))
+* **package:** update md5-file to version 4.0.0 ([160ca3e](https://github.com/kwonoj/hunspell-dict-downloader/commit/160ca3e))
+* **package:** update pacote to version 7.0.0 ([c445e9c](https://github.com/kwonoj/hunspell-dict-downloader/commit/c445e9c))
+
+
+
 <a name="0.0.2"></a>
 ## [0.0.2](https://github.com/kwonoj/hunspell-dict-downloader/compare/v0.0.1...v0.0.2) (2017-11-06)
 
