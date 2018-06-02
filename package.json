@@ -54,7 +54,7 @@
     "tslib": "^1.8.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^6.0.1",
+    "@commitlint/cli": "^7.0.0",
     "@commitlint/config-angular": "^6.0.2",
     "@types/chai": "^4.0.10",
     "@types/fs-extra": "^5.0.0",
