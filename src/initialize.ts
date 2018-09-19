@@ -1,8 +1,7 @@
 import * as fs from 'fs-extra';
-import * as includes from 'lodash.includes';
 import { isInstalledDictionaryValid } from './isInstalledDictionaryValid';
 import { CODE_LANG_REGION } from './manifest';
-
+const includes = require('lodash.includes'); //tslint:disable-line:no-require-imports no-var-requires
 /**
  * @internal
  * Initializes dictionary downloader instance.

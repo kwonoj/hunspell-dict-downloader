@@ -130,8 +130,8 @@ const languageCodeMapper: { [index in CODE_LANG]: CODE_LANG_REGION } = {
   vi: CODE_LANG_REGION.VI
 };
 /**
-* interfaces for manifest of each dictionary.
-*/
+ * interfaces for manifest of each dictionary.
+ */
 interface DictionaryManifest {
   /**
    * Code of dictionary, formed as xx-yy. xx represents language code, yy represents region.

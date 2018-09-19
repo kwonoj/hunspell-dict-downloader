@@ -1,5 +1,4 @@
 import * as fs from 'fs-extra';
-import * as includes from 'lodash.includes';
 import * as pacote from 'pacote';
 import * as path from 'path';
 import { getDictionaryPath } from './getDictionaryPath';
@@ -9,6 +8,7 @@ import { initialize } from './initialize';
 import { isInstalledDictionaryValid } from './isInstalledDictionaryValid';
 import { CODE_LANG, CODE_LANG_REGION, DictionaryManifest, manifest } from './manifest';
 import { log } from './util/logger';
+const includes = require('lodash.includes'); //tslint:disable-line:no-require-imports no-var-requires
 
 /**
  * Initialize, loads local dictionary and returns new instance of HunspellDictDownloader.
