@@ -66,7 +66,7 @@
     "@types/voca": "^1.4.0",
     "chai": "^4.1.2",
     "cjs-iso-639": "^1.1.2",
-    "commitizen": "^2.10.1",
+    "commitizen": "^3.0.0",
     "conventional-changelog-cli": "^2.0.5",
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.0.0",
