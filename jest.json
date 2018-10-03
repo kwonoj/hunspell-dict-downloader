@@ -21,6 +21,9 @@
   "coverageReporters": [
     "lcov"
   ],
+  "reporters": [
+    "jest-spin-reporter"
+  ],
   "collectCoverageFrom": [
     "src/**/*.{ts, tsx}",
     "!**/*.d.ts"
@@ -32,6 +35,5 @@
     "<rootDir>/src/manifest.ts",
     "<rootDir>/src/HunspellDictDownloader.ts",
     "<rootDir>/src/util/getFileHash.ts"
-
   ]
 }
