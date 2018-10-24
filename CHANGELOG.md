@@ -1,3 +1,25 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/kwonoj/hunspell-dict-downloader/compare/v0.0.3...v1.0.0) (2018-10-24)
+
+
+### Bug Fixes
+
+* **package:** update fs-extra to version 7.0.0 ([981a876](https://github.com/kwonoj/hunspell-dict-downloader/commit/981a876))
+* **package:** update pacote to version 9.0.0 ([c588653](https://github.com/kwonoj/hunspell-dict-downloader/commit/c588653))
+* **package:** update pify to version 4.0.0 ([e96748b](https://github.com/kwonoj/hunspell-dict-downloader/commit/e96748b))
+
+
+### build
+
+* **package:** bump up dependencies ([5293c7b](https://github.com/kwonoj/hunspell-dict-downloader/commit/5293c7b))
+
+
+### BREAKING CHANGES
+
+* **package:** drop nodejs support below 6
+
+
+
 <a name="0.0.3"></a>
 ## [0.0.3](https://github.com/kwonoj/hunspell-dict-downloader/compare/v0.0.2...v0.0.3) (2018-05-04)
 
