@@ -3,12 +3,14 @@ jobs:
   build:
     working_directory: ~/hunspell-dict-downloader
     docker:
-      - image: node:9.3.0
+      - image: circleci/node:10-browsers
     steps:
       - checkout
       - run:
           name: Checking Versions
-          command: node --version && npm --version
+          command: |
+            sudo npm install -g npm@latest
+            node --version && npm --version
       - run:
           name: prepare
           command: npm install
