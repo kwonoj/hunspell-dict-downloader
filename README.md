@@ -3,7 +3,6 @@
 [![codecov](https://codecov.io/gh/kwonoj/hunspell-dict-downloader/branch/master/graph/badge.svg)](https://codecov.io/gh/kwonoj/hunspell-dict-downloader)
 [![npm](https://img.shields.io/npm/v/hunspell-dict-downloader.svg)](https://www.npmjs.com/package/hunspell-dict-downloader)
 [![node](https://img.shields.io/badge/node-=>4.0-blue.svg?style=flat)](https://www.npmjs.com/package/hunspell-dict-downloader)
-[![Greenkeeper badge](https://badges.greenkeeper.io/kwonoj/hunspell-dict-downloader.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/kwonoj/hunspell-dict-downloader.svg?style=svg)](https://circleci.com/gh/kwonoj/hunspell-dict-downloader)
 
 # hunspell-dict-downloader
