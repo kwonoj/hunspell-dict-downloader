@@ -1,3 +1,13 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/kwonoj/hunspell-dict-downloader/compare/v1.0.0...v1.1.0) (2018-12-07)
+
+
+### Features
+
+* **manifest:** update new dictionary manifest ([3b8c9ff](https://github.com/kwonoj/hunspell-dict-downloader/commit/3b8c9ff))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/kwonoj/hunspell-dict-downloader/compare/v0.0.3...v1.0.0) (2018-10-24)
 
