@@ -23,10 +23,7 @@ const createDownloader: (installPath: string) => Promise<HunspellDictDownloader>
   const cacheDirectory = path.join(dictionaryDirectory, '.cache');
 
   const availableDictionaries: Readonly<Array<CODE_LANG_REGION>> = Object.keys(manifest) as any;
-  const installedDictionaries: Readonly<Array<CODE_LANG_REGION>> = await initialize(
-    dictionaryDirectory,
-    availableDictionaries
-  );
+  const installedDictionaries: Array<CODE_LANG_REGION> = await initialize(dictionaryDirectory, availableDictionaries);
 
   const dictionaryLocation: {
     [index in CODE_LANG_REGION]: { dic: string; aff: string }
