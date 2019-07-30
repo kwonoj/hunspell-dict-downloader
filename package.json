@@ -67,7 +67,7 @@
     "conventional-changelog-cli": "^2.0.21",
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.0.0",
-    "husky": "^2.3.0",
+    "husky": "^3.0.2",
     "iso-3166-2": "^1.0.0",
     "jest": "^24.8.0",
     "jest-spin-reporter": "^1.0.2",
