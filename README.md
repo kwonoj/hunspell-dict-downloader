@@ -5,7 +5,9 @@
 [![node](https://img.shields.io/badge/node-=>4.0-blue.svg?style=flat)](https://www.npmjs.com/package/hunspell-dict-downloader)
 [![CircleCI](https://circleci.com/gh/kwonoj/hunspell-dict-downloader.svg?style=svg)](https://circleci.com/gh/kwonoj/hunspell-dict-downloader)
 
-# hunspell-dict-downloader
+# hunspell-dict-downloader (DEPRECATED)
+
+# You may download packages for dictionary from https://www.npmjs.com/~_ojkwon directly.
 
 `hunspell-dict-downloader` provides interface to manage hunspell-based dictionaries via javascript on node.js. There are about [40 language dictionaries available](https://www.npmjs.com/~_ojkwon).
 
